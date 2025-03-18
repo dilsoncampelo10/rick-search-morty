@@ -1,0 +1,12 @@
+<section class="mt-4">
+    <div class="container">
+        <h2 class="text-center">Personagens</h2>
+        <div class="row">
+            <div class="col" *ngFor="let character of characteres">
+                <app-card [character]="character"></app-card>
+            </div>
+        
+         
+        </div>
+    </div>
+</section>

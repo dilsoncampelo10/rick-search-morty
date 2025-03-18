@@ -1,0 +1,14 @@
+header{
+    min-height: 70vh;
+    background: url(https://images7.alphacoders.com/133/1335145.jpg) center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+
+    h1{
+        color: white;
+        text-shadow: 2px 1px 2px var(--color-font);
+        font-size: 4rem;
+        background-color: rgba(0,0,0,.7);
+    }
+}

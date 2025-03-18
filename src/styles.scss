@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.min.css";
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+:root{
+    --color-font: #1DACCB;
+    --color-detail: #C9DE4E;
+}
+@font-face {
+    font-family: 'RickAndMorty';
+    src: url('/assets/fonts/RickAndMorty.ttf');
+}
