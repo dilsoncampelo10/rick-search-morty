@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment.development';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Character } from '../../../shared/models/Character';
 import { Observable } from 'rxjs';
 import { ApiResponse } from '../../../shared/models/ApiResponse';
@@ -16,5 +16,9 @@ export class CharacterService {
 
   getAll(): Observable<ApiResponse>{
     return this.request.get<ApiResponse>(`${this.url}/character`);
+  }
+  getBySearch(search: string): Observable<ApiResponse>{
+    const params = new HttpParams().set('name', search);
+    return this.request.get<ApiResponse>(`${this.url}/character`,{params})
   }
 }

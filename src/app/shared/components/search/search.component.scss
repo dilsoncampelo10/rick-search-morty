@@ -1,0 +1,17 @@
+.search {
+    .input_search{
+        width: 100%;
+        padding: 5px;
+        outline: 0;
+    }
+
+    button{
+        margin-right: -10px;
+        padding: 5px 0 5px 30px;
+        cursor: pointer;
+        i{
+            text-align: center;
+            margin-right: 33px;
+        }
+    }
+}

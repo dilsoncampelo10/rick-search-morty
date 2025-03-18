@@ -21,7 +21,6 @@ export class CharacterComponent implements OnInit{
    getAll(){
       this.service.getAll().subscribe({
         next: data => {
-          console.log(data.results);
           this.characteres = data.results;
        
         },
