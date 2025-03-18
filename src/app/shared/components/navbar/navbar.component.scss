@@ -7,10 +7,10 @@
     a{
         display: flex;
         align-items: center;
-        color: #1DACCB;
+        color: var(--color-font);
         text-decoration: none;
         font-family: RickAndMorty;
-        text-shadow: 1px 1px 2px #C9DE4E;
+        text-shadow: 1px 1px 2px var( --color-detail);
         margin: 0 20px;
         font-size: 1.8rem;
         i{

@@ -4,6 +4,10 @@
     box-sizing: border-box;
     padding: 0;
 }
+:root{
+    --color-font: #1DACCB;
+    --color-detail: #C9DE4E;
+}
 @font-face {
     font-family: 'RickAndMorty';
     src: url('/assets/fonts/RickAndMorty.ttf');
