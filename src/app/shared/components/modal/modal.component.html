@@ -1,0 +1,45 @@
+<div  #modal class="modal modal-xl fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5"></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"(click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <img src="{{character.image}}" alt="">
+            </div>
+            <div class="col-12 col-md-8">
+              <h2>{{character.name}}</h2>
+              <div>
+                <strong>Status: </strong> <span>{{character.status}}</span>
+              </div>
+              <div>
+                <strong>Local: </strong> <span>{{character.location.name}}</span>
+              </div>
+              <div>
+                <strong>Total de episódios: </strong> <span>{{character.episode.length}}</span>
+              </div>
+              <div>
+                <strong>Gênero: </strong> <span>{{character.gender}}</span>
+              </div>
+              <div>
+                <strong>Espécie: </strong> <span>{{character.species}}</span>
+              </div>
+              <div>
+                <strong>Origem: </strong> <span>{{character.origin?.name}}</span>
+              </div>
+              <div>
+                <strong>Total de episódios: </strong> <span>{{character.episode.length}}</span>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="closeModal()" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
