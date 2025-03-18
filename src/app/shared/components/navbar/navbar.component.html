@@ -1,18 +1,11 @@
-<nav>
-     <nav class="nav">
-            <div>
-                <a href="">
-                    <i class="fas fa-dice-d20"></i> Rick And Morty Search
-                </a>
-                
-            </div>
-            <div class="search">
-                <button><i class="fas fa-search"></i></button>
-                <input type="search" name="search" class="input_search">
-            </div>
-            <div class="icons">
-                <i class="fas fa-th-list"></i>
-                <i class="fas fa-bookmark"></i>
-            </div>
-        </nav>
-</nav>
+<nav class="navbar nav bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">Rick And Morty Search</a>
+      <form class="d-flex search" role="search">
+        <input class="input_search " type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">
+            <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+  </nav>

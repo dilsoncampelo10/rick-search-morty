@@ -1,9 +1,7 @@
 .nav{
     background-image: linear-gradient(#292F3B,#0e1013);
-    font-size: 30px;
     display: flex;
     justify-content: space-between;
-    height: 60px;
     align-items: center;
 
     a{
@@ -14,14 +12,14 @@
         font-family: RickAndMorty;
         text-shadow: 1px 1px 2px #C9DE4E;
         margin: 0 20px;
-
+        font-size: 1.8rem;
         i{
             margin: 0 10px;
         }
     }
     .search {
         .input_search{
-            width: 500px;
+            width: 100%;
             padding: 5px;
             outline: 0;
         }
