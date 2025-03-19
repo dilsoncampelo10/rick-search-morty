@@ -6,10 +6,11 @@ import { CardComponent } from '../card/card.component';
 import { SearchComponent } from '../search/search.component';
 import { TypeSearch } from '../../enums/TypeSearch';
 import { ApiResponse } from '../../models/ApiResponse';
+import { PaginationComponent } from '../pagination/pagination.component';
 
 @Component({
   selector: 'app-character',
-  imports: [CommonModule,CardComponent,SearchComponent],
+  imports: [CommonModule,CardComponent,SearchComponent,PaginationComponent],
   templateUrl: './character.component.html',
   styleUrl: './character.component.scss'
 })
@@ -17,26 +18,34 @@ export class CharacterComponent implements OnInit{
   constructor (private service: CharacterService){}
    public characteres: Character[] = [];
    public TypeSearch = TypeSearch;
+   public currentPage: number = 1;
+   public totalPages: number = 1;
 
    ngOnInit(): void {
-      this.getAll();
+      this.getAll(this.currentPage);
   }
    
-   getAll(){
-      this.service.getAll().subscribe({
-        next: (data: ApiResponse) => {
-          this.characteres = data.results;
-       
-        },
-        error: err => {
-          console.log(err)
-        }
-      })
-   }
+  getAll(page: number): void {
+    this.service.getAll(page).subscribe({
+      next: data => {
+        this.characteres = data.results;
+        this.totalPages = data.info.pages;
+        this.currentPage = page;
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+  }
 
 
    // update in search characters
   updateCharacters(results: Character[]) {
     this.characteres = results; 
   }
+
+  onPageChange(page: number): void {
+    this.getAll(page);
+  }
+
 }
