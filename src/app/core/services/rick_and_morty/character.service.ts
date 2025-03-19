@@ -15,8 +15,9 @@ export class CharacterService {
 
   private url: string = environment.api;
 
-  getAll(): Observable<ApiResponse>{
-    return this.request.get<ApiResponse>(`${this.url}/character`);
+  getAll(page: number = 1): Observable<ApiResponse>{
+    const params = new HttpParams().set('page', page);
+    return this.request.get<ApiResponse>(`${this.url}/character`,{params});
   }
   getBySearch(search: string, type : TypeSearch): Observable<ApiResponse>{
     const params = new HttpParams().set(type, search);

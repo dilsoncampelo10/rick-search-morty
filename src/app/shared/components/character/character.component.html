@@ -16,11 +16,21 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col" *ngFor="let character of characteres">
+            <app-pagination 
+            [currentPage]="currentPage" 
+            [totalPages]="totalPages" 
+            (pageChange)="onPageChange($event)">
+          </app-pagination>
+
+            <div class="col mt-3" *ngFor="let character of characteres">
                 <app-card [character]="character"></app-card>
             </div>
-        
-         
+
+            <app-pagination 
+            [currentPage]="currentPage" 
+            [totalPages]="totalPages" 
+            (pageChange)="onPageChange($event)">
+          </app-pagination>
         </div>
     </div>
 </section>
