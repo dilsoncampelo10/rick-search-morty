@@ -3,7 +3,7 @@ import { SearchComponent } from '../search/search.component';
 
 @Component({
   selector: 'app-navbar',
-  imports: [SearchComponent],
+  imports: [],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })

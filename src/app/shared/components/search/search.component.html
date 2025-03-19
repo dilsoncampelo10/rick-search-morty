@@ -1,5 +1,4 @@
 <div class="d-flex search" role="search">
-    <input class="input_search " type="search" placeholder="Faça sua Pesquisa" aria-label="Search" [(ngModel)]="search.search" (ngModelChange)="findBySearch()">
+    <input class="input_search " type="search" placeholder="{{placeholder}}" aria-label="Search" [(ngModel)]="search.search" (ngModelChange)="findBySearch()">
    
 </div>
-<p style="color: white;">{{search.search}}</p>
