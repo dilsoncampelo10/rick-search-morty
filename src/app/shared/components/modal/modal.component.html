@@ -2,13 +2,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5"></h1>
+        <h1 class="modal-title fs-5">{{character.name}}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal"(click)="closeModal()"></button>
       </div>
       <div class="modal-body">
         <div class="row">
             <div class="col-12 col-md-4">
-                <img src="{{character.image}}" alt="">
+                <img class="img-fluid img-thumbnail" src="{{character.image}}" alt="{{character.name}}">
             </div>
             <div class="col-12 col-md-8">
               <h2>{{character.name}}</h2>
