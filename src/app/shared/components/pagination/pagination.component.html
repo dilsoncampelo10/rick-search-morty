@@ -1,11 +1,11 @@
 <div class="d-flex justify-content-center mt-4">
-    <button class="btn btn-primary mx-2" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+    <button class="btn-previous btn btn-primary mx-2" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
       Anterior
     </button>
   
     <span>Página {{ currentPage }} de {{ totalPages }}</span>
   
-    <button class="btn btn-primary mx-2" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">
+    <button class="btn-next btn btn-primary mx-2" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">
       Próxima
     </button>
   </div>
