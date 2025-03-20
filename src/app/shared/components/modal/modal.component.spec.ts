@@ -20,4 +20,36 @@ describe('ModalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should open the modal and set character correctly', () => {
+    const character = { 
+      id: '1', 
+      name: 'Rick Sanchez', 
+      status: 'Alive', 
+      location: { name: 'Earth' },
+      image: '', 
+      episode: [], 
+      origin: { name: 'Earth' },
+      gender: 'Male', 
+      species: 'Human' 
+    };
+
+    component.openModal(character);
+
+    const modalElement = component.modal.nativeElement;
+    expect(modalElement.classList.contains('show')).toBeTrue();
+    expect(modalElement.classList.contains('hide')).toBeFalse();
+    expect(modalElement.style.display).toBe('block');
+
+    expect(component.character).toEqual(character);
+  });
+
+  it('should close the modal', () => {
+    component.closeModal();
+
+    const modalElement = component.modal.nativeElement;
+    expect(modalElement.classList.contains('hide')).toBeTrue();
+    expect(modalElement.classList.contains('show')).toBeFalse();
+    expect(modalElement.style.display).toBe('none');
+  });
 });
