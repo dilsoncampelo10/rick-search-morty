@@ -15,7 +15,7 @@
                 </app-search>
             </div>
         </div>
-        <div class="row mt-4">
+        <main class="row mt-4">
             <app-pagination 
             [currentPage]="currentPage" 
             [totalPages]="totalPages" 
@@ -31,6 +31,6 @@
             [totalPages]="totalPages" 
             (pageChange)="onPageChange($event)">
           </app-pagination>
-        </div>
+        </main>
     </div>
 </section>
