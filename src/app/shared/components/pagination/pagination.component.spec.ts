@@ -41,7 +41,7 @@ describe('PaginationComponent', () => {
   it('should not emit if the page is greater than totalPages', () => {
     spyOn(component.pageChange, 'emit');
 
-    component.goToPage(11); // Página inválida (maior que totalPages)
+    component.goToPage(11); 
     expect(component.pageChange.emit).not.toHaveBeenCalled();
   });
 
@@ -89,4 +89,26 @@ describe('PaginationComponent', () => {
     expect(component.goToPage).toHaveBeenCalledWith(component.currentPage - 1);
   });
 
+  it('should render the correct number of options in the select', () => {
+    component.totalPages = 5;
+    fixture.detectChanges();
+  
+    const select = fixture.debugElement.query(By.css('select')).nativeElement;
+    const options = select.querySelectorAll('option');
+  
+    expect(options.length).toBe(5);
+    expect(options[0].textContent.trim()).toBe('1');
+    expect(options[4].textContent.trim()).toBe('5');
+  });
+
+  it('should call onPageChange when a new page is selected', () => {
+    spyOn(component, 'onPageChange');
+  
+    const select = fixture.debugElement.query(By.css('select')).nativeElement;
+    select.value = '3'; 
+    select.dispatchEvent(new Event('change'));
+  
+    expect(component.onPageChange).toHaveBeenCalled();
+  });
+  
 });
