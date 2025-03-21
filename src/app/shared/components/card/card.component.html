@@ -1,11 +1,11 @@
 <div class="card mb-3">
     <img src="{{character.image}}" class="card-img-top" alt="{{character.name}}">
     <div class="card-body">
-      <h5 class="card-title">{{character.name}}</h5>
-      <p class="card-text">Status: {{character.status}}</p>
+      <h5 class="card-title card-name">{{character.name}}</h5>
+      <p class="card-text card-status">Status: {{character.status}}</p>
       <p>Local: {{character.location.name}}</p>
       <p>Total de episódios: {{character.episode.length}}</p>
-      <button type="button" class="btn btn-primary" (click)="openModal(character)">
+      <button type="button" class="btn btn-primary modal-btn" (click)="openModal(character)">
         Mais detalhes
       </button>
     
