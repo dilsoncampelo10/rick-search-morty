@@ -11,7 +11,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './card.component.scss'
 })
 export class CardComponent {
-  @Input() character!: Character;
+  @Input() character: Character = {
+    id: '',
+    name: '',
+    status: '',
+    location: { name: '' },
+    image: '',
+    episode: []
+  };
+  
   @ViewChild(ModalComponent) modal!: ModalComponent;
   selectedCharacterIndex:string = '';
 
