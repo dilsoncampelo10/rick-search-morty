@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
 
-    a{
+    .navbar-brand{
         display: flex;
         align-items: center;
         color: var(--color-font);
@@ -17,5 +17,11 @@
             margin: 0 10px;
         }
     }
-  
+    
+  .link{
+    text-decoration: none;
+    &:hover{
+        text-decoration: underline;
+    }
+  }
 }
