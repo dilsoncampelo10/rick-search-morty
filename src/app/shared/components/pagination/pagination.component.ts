@@ -1,8 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-pagination',
-  imports: [],
+  imports: [CommonModule,FormsModule],
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.scss'
 })
@@ -16,4 +18,9 @@ export class PaginationComponent {
       this.pageChange.emit(page);
     }
   }
+  onPageChange(event: Event) {
+    this.currentPage = Number((event.target as HTMLSelectElement).value);
+    this.pageChange.emit(this.currentPage);
+  }
+  
 }

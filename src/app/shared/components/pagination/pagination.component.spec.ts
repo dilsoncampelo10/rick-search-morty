@@ -46,7 +46,7 @@ describe('PaginationComponent', () => {
   });
 
   // Test buttons paginate
-  it('should disable "Anterior" button on first page', () => {
+  it('should disable prev button on first page', () => {
     component.currentPage = 1;
     fixture.detectChanges();
 
@@ -54,15 +54,14 @@ describe('PaginationComponent', () => {
     expect(prevButton.disabled).toBeTruthy();
   });
 
-  it('should disable "Próxima" button on last page', () => {
+  it('should disable next button on last page', () => {
     component.currentPage = component.totalPages;
-    fixture.detectChanges();
 
     const nextButton = fixture.debugElement.query(By.css('.btn-next')).nativeElement;
     expect(nextButton.disabled).toBeTruthy();
   });
 
-  it('should go to next page when "Próxima" is clicked', fakeAsync(() => {
+  it('should go to next page when next is clicked', fakeAsync(() => {
     spyOn(component, 'goToPage');
     
     component.currentPage = 1;
@@ -73,13 +72,12 @@ describe('PaginationComponent', () => {
     nextButton.click();
     
     tick();
-    fixture.detectChanges();
 
     expect(component.goToPage).toHaveBeenCalledWith(2);
   }));
 
 
-  it('should go to previous page when "Anterior" is clicked', () => {
+  it('should go to previous page when prev is clicked', () => {
     component.currentPage = 2;
     fixture.detectChanges();
 
@@ -87,7 +85,6 @@ describe('PaginationComponent', () => {
     const prevButton = fixture.debugElement.query(By.css('.btn-previous')).nativeElement;
 
     prevButton.click();
-    fixture.detectChanges();
 
     expect(component.goToPage).toHaveBeenCalledWith(component.currentPage - 1);
   });

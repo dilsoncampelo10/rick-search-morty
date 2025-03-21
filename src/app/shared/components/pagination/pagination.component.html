@@ -3,7 +3,15 @@
       Anterior
     </button>
   
-    <span>Página {{ currentPage }} de {{ totalPages }}</span>
+    <span>Página 
+      <select class="select-page" [(ngModel)]="currentPage" (change)="onPageChange($event)">
+        <option *ngFor="let i of [].constructor(totalPages); let idx = index" [value]="idx + 1">
+          {{ idx + 1 }}
+        </option>
+      </select>
+      de {{ totalPages }}
+    </span>
+    
   
     <button class="btn-next btn btn-primary mx-2" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">
       Próxima
