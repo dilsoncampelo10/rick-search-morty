@@ -2,8 +2,8 @@
     <div class="container-fluid">
       <a class="navbar-brand">Rick And Morty Search</a>
       <div>
-        <a [routerLink]="['/']" class="link text-light">Home</a>
-        <a [routerLink]="['/personagens']" class="link text-light ms-3">Personagens</a>
+        <a [routerLink]="['/']" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active" class="link text-light">Home</a>
+        <a [routerLink]="['/personagens']" routerLinkActive="active" class="link text-light ms-3">Personagens</a>
      </div>
     </div>
   
