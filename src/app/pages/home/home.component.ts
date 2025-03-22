@@ -6,7 +6,7 @@ import { FooterComponent } from '../../core/layouts/footer/footer.component';
 
 @Component({
   selector: 'app-home',
-  imports: [HeaderComponent,NavbarComponent,CharacterComponent, FooterComponent],
+  imports: [HeaderComponent,NavbarComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
