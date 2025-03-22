@@ -1,37 +1,32 @@
-<section class="mt-4">
-    <div class="container">
-        <h2 class="text-center">Personagens</h2>
-        <div class="row">
-            <div class="col-12 col-md-6 mt-2">
-                <app-search placeholder="Pesquisar pelo nome" 
-                            [type]="TypeSearch.NAME"
-                            (searchResults)="updateCharacters($event)">
-                </app-search>
-            </div>
-            <div class="col-12 col-md-6 mt-2">
-                <app-search placeholder="Pesquisar pelo status" 
-                            [type]="TypeSearch.STATUS"
-                            (searchResults)="updateCharacters($event)">
-                </app-search>
-            </div>
-        </div>
-        <main class="row mt-4">
-            <app-pagination 
-         
-            [currentPage]="currentPage" 
-            [totalPages]="totalPages" 
-            (pageChange)="onPageChange($event)">
-          </app-pagination>
-
-            <div class="col mt-4" *ngFor="let character of characteres">
-                <app-card class="d-flex justify-content-center" [character]="character"></app-card>
-            </div>
-
-            <app-pagination 
-            [currentPage]="currentPage" 
-            [totalPages]="totalPages" 
-            (pageChange)="onPageChange($event)">
-          </app-pagination>
-        </main>
+<div class="row">
+    <div class="col-12 col-md-6 mt-2">
+        <app-search placeholder="Pesquisar pelo nome" 
+                    [type]="TypeSearch.NAME"
+                    (searchResults)="updateCharacters($event)">
+        </app-search>
     </div>
-</section>
+    <div class="col-12 col-md-6 mt-2">
+        <app-search placeholder="Pesquisar pelo status" 
+                    [type]="TypeSearch.STATUS"
+                    (searchResults)="updateCharacters($event)">
+        </app-search>
+    </div>
+</div>
+<main class="row mt-4">
+    <app-pagination 
+ 
+    [currentPage]="currentPage" 
+    [totalPages]="totalPages" 
+    (pageChange)="onPageChange($event)">
+  </app-pagination>
+
+    <div class="col mt-4" *ngFor="let character of characteres">
+        <app-card class="d-flex justify-content-center" [character]="character"></app-card>
+    </div>
+
+    <app-pagination 
+    [currentPage]="currentPage" 
+    [totalPages]="totalPages" 
+    (pageChange)="onPageChange($event)">
+  </app-pagination>
+</main>
