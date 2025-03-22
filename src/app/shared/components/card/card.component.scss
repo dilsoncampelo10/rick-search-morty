@@ -1,6 +1,8 @@
 .card{
     width: 18rem;
-
+    background-color: #292F3B;
+    color: white;
+    border: 1px solid white;
     &:hover{
         box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
         transform: scale(1.05);
