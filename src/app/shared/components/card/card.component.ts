@@ -31,9 +31,9 @@ export class CardComponent {
 
 getStatusClass(status: StatusCharacter): string {
   return {
-    [StatusCharacter.ALIVE]: 'alive',
-    [StatusCharacter.DEAD]: 'dead',
-    [StatusCharacter.UNKNOWN]: 'unknown'
+    [StatusCharacter.ALIVE.toLocaleLowerCase()]: 'alive',
+    [StatusCharacter.DEAD.toLocaleLowerCase()]: 'dead',
+    [StatusCharacter.UNKNOWN.toLocaleLowerCase()]: 'unknown'
   }[status.toLowerCase()] || '';
 }
 
