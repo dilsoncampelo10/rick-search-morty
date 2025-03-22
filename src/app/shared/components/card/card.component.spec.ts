@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardComponent } from './card.component';
 import { By } from '@angular/platform-browser';
+import { StatusCharacter } from '../../enums/StatusCharacter';
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -26,7 +27,7 @@ describe('CardComponent', () => {
     component.character = {
       id: '1',
       name: 'Rick Sanchez',
-      status: 'Alive',
+      status: StatusCharacter.ALIVE,
       location: { name: 'Earth' },
       image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
       episode: []
@@ -47,7 +48,7 @@ describe('CardComponent', () => {
     component.character = {
       id: '1',
       name: 'Rick Sanchez',
-      status: 'Alive',
+      status: StatusCharacter.ALIVE,
       location: { name: 'Earth' },
       image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
       episode: []

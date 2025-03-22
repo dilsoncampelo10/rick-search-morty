@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Character } from '../../models/Character';
+import { StatusCharacter } from '../../enums/StatusCharacter';
 
 @Component({
   selector: 'app-modal',
@@ -13,7 +14,7 @@ export class ModalComponent {
   character: Character = {
     id: '',
     name: '',
-    status: '',
+    status: StatusCharacter.ALIVE,
     location: { name: '' },
     image: '',
     episode: [],

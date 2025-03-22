@@ -3,6 +3,7 @@ import { Character } from '../../models/Character';
 import { ModalComponent } from '../modal/modal.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { StatusCharacter } from '../../enums/StatusCharacter';
 
 @Component({
   selector: 'app-card',
@@ -14,7 +15,7 @@ export class CardComponent {
   @Input() character: Character = {
     id: '',
     name: '',
-    status: '',
+    status: StatusCharacter.ALIVE,
     location: { name: '' },
     image: '',
     episode: []
@@ -27,5 +28,14 @@ export class CardComponent {
 
     this.modal.openModal(character);
 }
+
+getStatusClass(status: StatusCharacter): string {
+  return {
+    [StatusCharacter.ALIVE]: 'alive',
+    [StatusCharacter.DEAD]: 'dead',
+    [StatusCharacter.UNKNOWN]: 'unknown'
+  }[status.toLowerCase()] || '';
+}
+
   
 }

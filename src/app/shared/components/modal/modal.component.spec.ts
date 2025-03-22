@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalComponent } from './modal.component';
+import { StatusCharacter } from '../../enums/StatusCharacter';
 
 describe('ModalComponent', () => {
   let component: ModalComponent;
@@ -25,7 +26,7 @@ describe('ModalComponent', () => {
     const character = { 
       id: '1', 
       name: 'Rick Sanchez', 
-      status: 'Alive', 
+      status: StatusCharacter.ALIVE, 
       location: { name: 'Earth' },
       image: '', 
       episode: [], 

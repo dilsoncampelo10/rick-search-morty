@@ -4,6 +4,7 @@ import { CharacterComponent } from './character.component';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { CharacterService } from '../../../core/services/rick_and_morty/character.service';
+import { StatusCharacter } from '../../enums/StatusCharacter';
 
 describe('CharacterComponent', () => {
   let component: CharacterComponent;
@@ -46,7 +47,7 @@ describe('CharacterComponent', () => {
 
   it('should update character list when updateCharacters is called', () => {
     const newCharacters = [
-      { id: '2', name: 'Morty Smith', status: 'Alive', location: { name: 'Earth' }, image: '', episode: [] }
+      { id: '2', name: 'Morty Smith', status: StatusCharacter.ALIVE, location: { name: 'Earth' }, image: '', episode: [] }
     ];
 
     component.updateCharacters(newCharacters);

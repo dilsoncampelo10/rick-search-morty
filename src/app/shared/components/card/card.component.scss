@@ -11,4 +11,24 @@
     .modal-btn{
         border-radius: 3rem;
     }
+    .circle {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+      
+      .alive {
+        background-color: green;
+      }
+      
+      .unknown {
+        background-color: gray;
+      }
+      
+      .dead {
+        background-color: red;
+      }
+      
 }

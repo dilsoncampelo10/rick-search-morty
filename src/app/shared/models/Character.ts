@@ -1,7 +1,9 @@
+import { StatusCharacter } from "../enums/StatusCharacter";
+
 export class Character {
     public id: string = '';
     public name: string = '';
-    public status: string = '';
+    public status: StatusCharacter = StatusCharacter.ALIVE;
     public location: Location = {name:''};
     public image: string = '';
     public episode: string[] = [];

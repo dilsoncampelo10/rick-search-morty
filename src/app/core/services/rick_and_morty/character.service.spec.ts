@@ -6,6 +6,7 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { ApiResponse } from '../../../shared/models/ApiResponse';
 import { environment } from '../../../../environments/environment.development';
 import { TypeSearch } from '../../../shared/enums/TypeSearch';
+import { StatusCharacter } from '../../../shared/enums/StatusCharacter';
 
 describe('CharacterService', () => {
   let service: CharacterService;
@@ -29,7 +30,7 @@ describe('CharacterService', () => {
   it('should get for all characters (getAll)', () => {
     const mockResponse: ApiResponse = {
       info: { count: 826, pages: 42, next: '', prev: '' },
-      results: [{ id: '1', name: 'Rick Sanchez', status: 'Alive', location: { name: 'Earth' }, image: '', episode: [] }]
+      results: [{ id: '1', name: 'Rick Sanchez', status: StatusCharacter.ALIVE, location: { name: 'Earth' }, image: '', episode: [] }]
     };
 
     service.getAll(1).subscribe((response) => {
@@ -44,7 +45,7 @@ describe('CharacterService', () => {
   it('should search for characters by name (getBySearch)', () => {
     const mockResponse: ApiResponse = {
       info: { count: 1, pages: 1, next: '', prev: '' },
-      results: [{ id: '1', name: 'Morty Smith', status: 'Alive', location: { name: 'Earth' }, image: '', episode: [] }]
+      results: [{ id: '1', name: 'Morty Smith', status: StatusCharacter.ALIVE, location: { name: 'Earth' }, image: '', episode: [] }]
     };
 
     service.getBySearch('Morty', TypeSearch.NAME).subscribe((response) => {
@@ -60,12 +61,12 @@ describe('CharacterService', () => {
     const mockResponse: ApiResponse = {
       info: { count: 3, pages: 1, next: '', prev: '' },
       results: [
-        { id: '1', name: 'Rick Sanchez', status: 'Alive', location: { name: 'Earth' }, image: '', episode: [] },
-        { id: '2', name: 'Morty Smith', status: 'Alive', location: { name: 'Earth' }, image: '', episode: [] }
+        { id: '1', name: 'Rick Sanchez', status: StatusCharacter.ALIVE, location: { name: 'Earth' }, image: '', episode: [] },
+        { id: '2', name: 'Morty Smith', status: StatusCharacter.ALIVE, location: { name: 'Earth' }, image: '', episode: [] }
       ]
     };
   
-    service.getBySearch('Alive', TypeSearch.STATUS).subscribe((response) => {
+    service.getBySearch(StatusCharacter.ALIVE, TypeSearch.STATUS).subscribe((response) => {
       expect(response).toEqual(mockResponse);
       expect(response.results.length).toBe(2);
       expect(response.results[0].status).toBe('Alive'); 
