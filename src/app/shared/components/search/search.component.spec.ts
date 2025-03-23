@@ -7,6 +7,7 @@ import { Character } from '../../models/Character';
 import { ApiResponse } from '../../models/ApiResponse';
 import { CharacterService } from '../../../core/services/rick_and_morty/character.service';
 import { of } from 'rxjs';
+import { StatusCharacter } from '../../enums/StatusCharacter';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -35,8 +36,8 @@ describe('SearchComponent', () => {
 
   it('should call CharacterService and emit search results', () => {
     const mockCharacters: Character[] = [
-      { id: '1', name: 'Rick', status: 'Alive', location: { name: 'Earth' }, image: '', episode: [], origin: { name: '' }, gender: '', species: '' },
-      { id: '2', name: 'Morty', status: 'Alive', location: { name: 'Earth' }, image: '', episode: [], origin: { name: '' }, gender: '', species: '' }
+      { id: '1', name: 'Rick', status: StatusCharacter.ALIVE, location: { name: 'Earth' }, image: '', episode: [], origin: { name: '' }, gender: '', species: '' },
+      { id: '2', name: 'Morty', status: StatusCharacter.ALIVE, location: { name: 'Earth' }, image: '', episode: [], origin: { name: '' }, gender: '', species: '' }
     ];
     
     const mockApiResponse: ApiResponse = { info: { count: 2, pages: 1, next: '', prev: '' }, results: mockCharacters };
@@ -52,7 +53,7 @@ describe('SearchComponent', () => {
 
   it('should emit search results when API call is successful', () => {
     const mockCharacters: Character[] = [
-      { id: '1', name: 'Rick', status: 'Alive', location: { name: 'Earth' }, image: '', episode: [], origin: { name: '' }, gender: '', species: '' }
+      { id: '1', name: 'Rick', status: StatusCharacter.ALIVE, location: { name: 'Earth' }, image: '', episode: [], origin: { name: '' }, gender: '', species: '' }
     ];
   
     const mockApiResponse: ApiResponse = { info: { count: 1, pages: 1, next: '', prev: '' }, results: mockCharacters };
@@ -67,7 +68,7 @@ describe('SearchComponent', () => {
 
   it('should emit search results when API call is successful', () => {
     const mockCharacters: Character[] = [
-      { id: '1', name: 'Rick', status: 'Alive', location: { name: 'Earth' }, image: '', episode: [], origin: { name: '' }, gender: '', species: '' }
+      { id: '1', name: 'Rick', status: StatusCharacter.ALIVE, location: { name: 'Earth' }, image: '', episode: [], origin: { name: '' }, gender: '', species: '' }
     ];
   
     const mockApiResponse: ApiResponse = { info: { count: 1, pages: 1, next: '', prev: '' }, results: mockCharacters };

@@ -6,10 +6,12 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { ApiResponse } from '../../../shared/models/ApiResponse';
 import { environment } from '../../../../environments/environment.development';
 import { TypeSearch } from '../../../shared/enums/TypeSearch';
+import { StatusCharacter } from '../../../shared/enums/StatusCharacter';
 
 describe('CharacterService', () => {
   let service: CharacterService;
   let  httpMock: HttpTestingController;
+  let base_url = environment.api;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -29,14 +31,14 @@ describe('CharacterService', () => {
   it('should get for all characters (getAll)', () => {
     const mockResponse: ApiResponse = {
       info: { count: 826, pages: 42, next: '', prev: '' },
-      results: [{ id: '1', name: 'Rick Sanchez', status: 'Alive', location: { name: 'Earth' }, image: '', episode: [] }]
+      results: [{ id: '1', name: 'Rick Sanchez', status: StatusCharacter.ALIVE, location: { name: 'Earth' }, image: '', episode: [] }]
     };
 
     service.getAll(1).subscribe((response) => {
       expect(response).toEqual(mockResponse);
     });
 
-    const req = httpMock.expectOne(`${environment.api}/character?page=1`);
+    const req = httpMock.expectOne(`${base_url}/character?page=1`);
     expect(req.request.method).toBe('GET');
     req.flush(mockResponse); 
   });
@@ -44,14 +46,14 @@ describe('CharacterService', () => {
   it('should search for characters by name (getBySearch)', () => {
     const mockResponse: ApiResponse = {
       info: { count: 1, pages: 1, next: '', prev: '' },
-      results: [{ id: '1', name: 'Morty Smith', status: 'Alive', location: { name: 'Earth' }, image: '', episode: [] }]
+      results: [{ id: '1', name: 'Morty Smith', status: StatusCharacter.ALIVE, location: { name: 'Earth' }, image: '', episode: [] }]
     };
 
     service.getBySearch('Morty', TypeSearch.NAME).subscribe((response) => {
       expect(response).toEqual(mockResponse);
     });
 
-    const req = httpMock.expectOne(`${environment.api}/character?name=Morty`);
+    const req = httpMock.expectOne(`${base_url}/character?name=Morty`);
     expect(req.request.method).toBe('GET');
     req.flush(mockResponse);
   });
@@ -60,18 +62,18 @@ describe('CharacterService', () => {
     const mockResponse: ApiResponse = {
       info: { count: 3, pages: 1, next: '', prev: '' },
       results: [
-        { id: '1', name: 'Rick Sanchez', status: 'Alive', location: { name: 'Earth' }, image: '', episode: [] },
-        { id: '2', name: 'Morty Smith', status: 'Alive', location: { name: 'Earth' }, image: '', episode: [] }
+        { id: '1', name: 'Rick Sanchez', status: StatusCharacter.ALIVE, location: { name: 'Earth' }, image: '', episode: [] },
+        { id: '2', name: 'Morty Smith', status: StatusCharacter.ALIVE, location: { name: 'Earth' }, image: '', episode: [] }
       ]
     };
   
-    service.getBySearch('Alive', TypeSearch.STATUS).subscribe((response) => {
+    service.getBySearch(StatusCharacter.ALIVE, TypeSearch.STATUS).subscribe((response) => {
       expect(response).toEqual(mockResponse);
       expect(response.results.length).toBe(2);
       expect(response.results[0].status).toBe('Alive'); 
     });
   
-    const req = httpMock.expectOne(`${environment.api}/character?status=Alive`);
+    const req = httpMock.expectOne(`${base_url}/character?status=Alive`);
     expect(req.request.method).toBe('GET');
     req.flush(mockResponse);
   });
