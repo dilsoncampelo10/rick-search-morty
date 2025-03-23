@@ -4,10 +4,11 @@ import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { InfoService } from '../../core/services/rick_and_morty/info.service';
 import { TypeInfo } from '../../shared/enums/TypeInfo';
+import { InfoBoxComponent } from '../../shared/components/info-box/info-box.component';
 
 @Component({
   selector: 'app-home',
-  imports: [HeaderComponent,CommonModule],
+  imports: [HeaderComponent,CommonModule,InfoBoxComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

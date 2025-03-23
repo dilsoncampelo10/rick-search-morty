@@ -3,35 +3,30 @@
     <div class="container mt-5 pb-5">
         <div class="row">
             <div class="col-6 col-md-4">
-                <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Total de personagens</div>
-                    <div class="card-body">
-                      <h5 class="card-title fs-1">{{ totalCharacters$ | async }}</h5>
-
-                      <p class="card-text">Número de personagens cadastrados</p>
-                    </div>
-                  </div>
+                <app-info-box 
+                  color="primary"
+                  title="Total de Personagens" 
+                  total="{{totalCharacters$ | async}}">
+                  Número total de personagens cadastrados
+                </app-info-box>
               </div>
               <div class="col-6 col-md-4">
-                <div class="card text-bg-warning mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Total de episóidios</div>
-                    <div class="card-body">
-                      <h5 class="card-title fs-1">{{ totalEpisodes$ | async }}</h5>
-                      <p class="card-text">Número total de episódios cadastrados</p>
-                    </div>
-                  </div>
+                <app-info-box 
+                  color="danger"
+                  title="Total de Episódios" 
+                  total="{{totalEpisodes$ | async}}">
+                  Número total de episódios cadastrados
+                </app-info-box>
               </div>
 
               <div class="col-6 col-md-4">
-                <div class="card text-bg-danger mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Total de Localizações</div>
-                    <div class="card-body">
-                      <h5 class="card-title fs-1">{{ totalLocations$ | async }}</h5>
-                      <p class="card-text">Número total de localizações cadastradas</p>
-                    </div>
-                  </div>
+                <app-info-box 
+                  color="success"
+                  title="Total de Localizações" 
+                  total="{{totalLocations$ | async}}">
+                  Número total de localizações cadastradas
+              </app-info-box>
               </div>   
-        </div>
-         
+        </div>   
     </div>
 </section>
