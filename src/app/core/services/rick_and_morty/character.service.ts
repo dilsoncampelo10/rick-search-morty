@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment.development';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Character } from '../../../shared/models/Character';
 import { Observable } from 'rxjs';
 import { ApiResponse } from '../../../shared/models/ApiResponse';
 import { TypeSearch } from '../../../shared/enums/TypeSearch';

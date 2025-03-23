@@ -11,6 +11,7 @@ import { StatusCharacter } from '../../../shared/enums/StatusCharacter';
 describe('CharacterService', () => {
   let service: CharacterService;
   let  httpMock: HttpTestingController;
+  let base_url = environment.api;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -37,7 +38,7 @@ describe('CharacterService', () => {
       expect(response).toEqual(mockResponse);
     });
 
-    const req = httpMock.expectOne(`${environment.api}/character?page=1`);
+    const req = httpMock.expectOne(`${base_url}/character?page=1`);
     expect(req.request.method).toBe('GET');
     req.flush(mockResponse); 
   });
@@ -52,7 +53,7 @@ describe('CharacterService', () => {
       expect(response).toEqual(mockResponse);
     });
 
-    const req = httpMock.expectOne(`${environment.api}/character?name=Morty`);
+    const req = httpMock.expectOne(`${base_url}/character?name=Morty`);
     expect(req.request.method).toBe('GET');
     req.flush(mockResponse);
   });
@@ -72,7 +73,7 @@ describe('CharacterService', () => {
       expect(response.results[0].status).toBe('Alive'); 
     });
   
-    const req = httpMock.expectOne(`${environment.api}/character?status=Alive`);
+    const req = httpMock.expectOne(`${base_url}/character?status=Alive`);
     expect(req.request.method).toBe('GET');
     req.flush(mockResponse);
   });
