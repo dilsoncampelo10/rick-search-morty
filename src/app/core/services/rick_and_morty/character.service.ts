@@ -13,7 +13,7 @@ export class CharacterService {
 
   constructor(private request: HttpClient) { }
 
-  private url: string = environment.api;
+  private readonly url: string = environment.api;
 
   getAll(page: number = 1): Observable<ApiResponse>{
     const params = new HttpParams().set('page', page);
