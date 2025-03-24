@@ -1,59 +1,84 @@
-# RickSearchMorty
+📌 Deploy do Projeto Rick Search Morty
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+A aplicação se baseia em um site que se torna possível saber informações da série Rick And Morty, mais precisamente de seus personagens, podendo navegar na listagem e fazer buscas, utilizando a Api fornecida:
 
-## Development server
+[https://rickandmortyapi.com/](https://rickandmortyapi.com/)
 
-To start a local development server, run:
+Este documento explica como rodar e fazer o deploy da aplicação Angular tanto localmente quanto utilizando Docker.
 
-```bash
+🚀 Rodando Localmente
+
+🔧 Pré-requisitos
+
+Node.js 20+
+
+Angular CLI
+
+Git
+
+📥 Instalando as Dependências
+
+# Clone o repositório
+
+git clone https://github.com/dilsoncampelo10/rick-search-morty
+
+cd rick-search-morty
+
+# Caso não tenha o Angular CLI instalado:
+
+npm install -g @angular/cli
+
+# Instale as dependências
+
+npm install
+
+▶️ Rodando o Servidor de Desenvolvimento
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+O servidor será iniciado em http://localhost:4200/
 
-## Code scaffolding
+🐳 Deploy com Docker
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+🔧 Pré-requisitos
 
-```bash
-ng generate component component-name
-```
+Docker
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+📦 Criando a Imagem Docker
 
-```bash
-ng generate --help
-```
+# Construindo a imagem Docker
 
-## Building
+docker build -t rick-search-morty .
 
-To build the project run:
+🚀 Rodando o Container
 
-```bash
-ng build
-```
+docker run -p 4200:4200 rick-search-morty
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Acesse http://localhost:4200/ para visualizar a aplicação rodando no container.
 
-## Running unit tests
+✅ Testando a Aplicação
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Caso queira rodar os testes unitários:
 
-```bash
 ng test
-```
 
-## Running end-to-end tests
+📜 Caso queira verificar a aplicação rodando em produção, acesse:
 
-For end-to-end (e2e) testing, run:
+[https://rick-search-morty.netlify.app/](https://rick-search-morty.netlify.app/)
 
-```bash
-ng e2e
-```
+# Sobre a estrutura de pastas utilizada
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Pensando em escalabilidade do projeto, os diretórios foram definidos da seguinte maneira:
 
-## Additional Resources
+Core: Arquivos essenciais, que não podem faltar na aplicação, como services, layouts, guards, config e etc
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Shared: Onde ficam arquivos constantemente compartilhados e reutilizados, como os components, enums, models e etc
+
+Pages: São as páginas do projeto, que tem uma rota definida e agrupa os demais components, como home e list-character
+
+Dentro de pages busco organizar de forma que, caso a aplicação cresça, e precise por exemplo, adicionar um create-character, apenas seja adicionado em:
+
+-pages:
+--character:
+---list-character
+---create-character
