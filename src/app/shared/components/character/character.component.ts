@@ -5,7 +5,6 @@ import { CharacterService } from '../../../core/services/rick_and_morty/characte
 import { CardComponent } from '../card/card.component';
 import { SearchComponent } from '../search/search.component';
 import { TypeSearch } from '../../enums/TypeSearch';
-import { ApiResponse } from '../../models/ApiResponse';
 import { PaginationComponent } from '../pagination/pagination.component';
 
 @Component({
@@ -38,8 +37,6 @@ export class CharacterComponent implements OnInit{
     });
   }
 
-
-   // update in search characters
   updateCharacters(results: Character[]) {
     this.characteres = results; 
   }
